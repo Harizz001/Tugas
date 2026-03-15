@@ -58,7 +58,7 @@ int main(int argc, char ** argv)
     // ---  * output yang diinginkan: 32 390 Selasa
     // ---                  32 -> usia dalam tahun, 390 -> usia dalam bulan, Selasa -> hari dari tanggal input
     // ----------------------------------------------------------------------------------------------------------------
-    int ageOfYear = yearsOld(inputTgl, currentTgl);
+    int ageOfYear = yearsOld(inputTgl, currentTgl); 
     int ageOfMonth = monthsOld(inputTgl, currentTgl);
     string dayName = dayOfDate(inputTgl);
 
@@ -73,8 +73,8 @@ int main(int argc, char ** argv)
 //*********************************************************************************************************************
 int yearsOld(tm* inputTgl, tm* currentTgl)
 {
-    int yearDiff = currentTgl->tm_year - inputTgl->tm_year;
-    int monthDiff = currentTgl->tm_mon - inputTgl->tm_mon;
+    int yearDiff = currentTgl->tm_year - inputTgl->tm_year; //selisih tahun
+    int monthDiff = currentTgl->tm_mon - inputTgl->tm_mon; //selisih bulan
 
     if (monthDiff < 0) {
         yearDiff--;
@@ -86,8 +86,8 @@ int yearsOld(tm* inputTgl, tm* currentTgl)
 //*********************************************************************************************************************
 int monthsOld(tm* inputTgl, tm* currentTgl)
 {
-    int yearDiff = currentTgl->tm_year - inputTgl->tm_year;
-    int monthDiff = currentTgl->tm_mon - inputTgl->tm_mon;
+    int yearDiff = currentTgl->tm_year - inputTgl->tm_year; //selisih tahun
+    int monthDiff = currentTgl->tm_mon - inputTgl->tm_mon; //selisih bulan
     int totalMonths = yearDiff * 12 + monthDiff;
 
     return totalMonths;
@@ -97,7 +97,7 @@ int monthsOld(tm* inputTgl, tm* currentTgl)
 string dayOfDate(tm* inputTgl)
 {
     mktime(inputTgl);
-    string dayName[] = {"Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"};
+    string dayName[] = {"Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"}; // array nama hari dalam seminggu
 
     return dayName[inputTgl->tm_wday];
 }
