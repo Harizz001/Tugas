@@ -25,27 +25,27 @@ int main(int argc, char ** argv)
     tm* currentTgl = localtime(&currentTime);
 
     // print tanggal sekarang (di comment)
-    // cout    <<" year:" << timePtr->tm_year+1900 <-- perlu diperhatikan
-    //        <<" month:"<< timePtr->tm_mon+1
-    //        <<" day:" << timePtr->tm_mday <<endl;
+    cout    <<"year:" << currentTgl->tm_year+1900
+            <<" month:"<< currentTgl->tm_mon+1
+            <<" day:" << currentTgl->tm_mday <<endl;
 
-    //int yearnow = currentTgl->tm_year+1900;    
-    //int monthnow = currentTgl->tm_mon+1;
-    //int daynow = currentTgl->tm_mday;
-    //int dayofweek = currentTgl->tm_wday;       // <-- start dari hari minggu
+    int yearnow = currentTgl->tm_year+1900;    
+    int monthnow = currentTgl->tm_mon+1;
+    int daynow = currentTgl->tm_mday;
+    int dayofweek = currentTgl->tm_wday;       // <-- start dari hari minggu
 
     // input tanggal lahir
     int yearinput, monthinput, dayinput;
     string inputstr;
     char ch;
     // silahkan uncomment kode dibawah untuk debugging
-    //cout << "Input tanggal dalam format DD/MM/YYYY:";
+    cout << "Input tanggal dalam format DD/MM/YYYY:";
     cin >> inputstr;
     stringstream ss(inputstr);
     ss >> dayinput >> ch >> monthinput >> ch >> yearinput;
 
     // silahkan uncomment untuk debugging
-    //cout << "Tanggal Input: " << dayinput << "/" << monthinput << "/" << yearinput << endl;
+    cout << "Tanggal Input: " << dayinput << "/" << monthinput << "/" << yearinput << endl;
     
     // buat tm* untuk tanggal input
     tm* inputTgl = new tm();
@@ -58,11 +58,11 @@ int main(int argc, char ** argv)
     // ---  * output yang diinginkan: 32 390 Selasa
     // ---                  32 -> usia dalam tahun, 390 -> usia dalam bulan, Selasa -> hari dari tanggal input
     // ----------------------------------------------------------------------------------------------------------------
-    int ageOfYear = yearsOld(inputTgl, currentTgl);
+    int ageOfYear = yearsOld(inputTgl, currentTgl); 
     int ageOfMonth = monthsOld(inputTgl, currentTgl);
     string dayName = dayOfDate(inputTgl);
 
-    cout << ageOfYear << " " << ageOfMonth << " " << dayName;
+    cout << ageOfYear << " " << ageOfMonth << " " << dayName << endl;
     // ----------------------------------------------------------------------------------------------------------------
 
     return 0;
@@ -73,19 +73,33 @@ int main(int argc, char ** argv)
 //*********************************************************************************************************************
 int yearsOld(tm* inputTgl, tm* currentTgl)
 {
-    return 0;
+    int yearDiff = currentTgl->tm_year - inputTgl->tm_year; //selisih tahun
+    int monthDiff = currentTgl->tm_mon - inputTgl->tm_mon; //selisih bulan
+
+    if (monthDiff < 0) {
+        yearDiff--;
+    }
+
+    return yearDiff;
 }
 //*********************************************************************************************************************
 //*********************************************************************************************************************
 int monthsOld(tm* inputTgl, tm* currentTgl)
 {
-    return 0;
+    int yearDiff = currentTgl->tm_year - inputTgl->tm_year; //selisih tahun
+    int monthDiff = currentTgl->tm_mon - inputTgl->tm_mon; //selisih bulan
+    int totalMonths = yearDiff * 12 + monthDiff;
+
+    return totalMonths;
 }
 //*********************************************************************************************************************
 //*********************************************************************************************************************
 string dayOfDate(tm* inputTgl)
 {
-    return "RET";
+    mktime(inputTgl);
+    string dayName[] = {"Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"}; // array nama hari dalam seminggu
+
+    return dayName[inputTgl->tm_wday];
 }
 //*********************************************************************************************************************
 //*********************************************************************************************************************
