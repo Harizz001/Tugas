@@ -33,7 +33,7 @@ namespace sim {
 ### C. Implementasi Program
 Berikut adalah contoh sintaks yang saya gunakan pada file `mahasiswa.cpp`:
 ```cpp
-// Contoh cara anak (Mahasiswa) memanggil bapaknya (Orang)
+// Memanggil constructor class Orang, lalu mengisi sisa variabelnya
 Mahasiswa::Mahasiswa(string input_nama, string input_tgl, string input_nrp, string input_dept) 
     : Orang(input_nama, input_tgl) { // Mengirim nama dan tgl ke class Orang
     
@@ -43,7 +43,7 @@ Mahasiswa::Mahasiswa(string input_nama, string input_tgl, string input_nrp, stri
 
 void Mahasiswa::tampilkanData() {
     cout << "--- Data Mahasiswa ---" << endl;
-    Orang::tampilkanData(); // Menjalankan fungsi cetak milik induk
+    Orang::tampilkanData(); // Menampilkan nama dan tgl lahir dari induk
     cout << "NRP           : " << nrp << endl;
     cout << "Departemen    : " << departemen << endl;
 }
