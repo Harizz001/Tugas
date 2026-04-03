@@ -1,19 +1,20 @@
 # Buat Laporan Disini
 
-Kamis, 2 April 2026
+## Kamis, 2 April 2026
     - Membaca ulang apa yang dimaksud engan Inheritance dan Namespace
     - Memahami maksud tugas yang diberikan dengan membaca file README.md
     - Membuat folder baru bernama "include" karena di main.cpp sudah ada template yang mengharuskan memakai nama "include/..."
     - Membuat file .hpp sesuai dengan yang ada di template main.cpp
     - Membuat file .cpp sebagai isi dari seluruh program dari file .hpp nya
 
-Jum'at, 3 April 2026
+## Jum'at, 3 April 2026
     - Menyelesaikan kode eksekusi perintah tugas di main.cpp
     - Mencoba mengcompile untuk mencari error
     - Debugging
     - Finishing
 
-Output Program
+### Output Program
+```cpp
 PROGRAM SIM AKADEMIK SEDERHANA
 ==============================
 
