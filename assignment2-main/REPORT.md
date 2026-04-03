@@ -71,5 +71,3 @@ Tanggal Lahir : 20 Mar 1995
 NIP           : 19950320
 Unit Kerja    : Tata Usaha  
 ```
-
-![Bukti Output Program](Dokumentasi_Compile_Output.png)
