@@ -6,7 +6,7 @@ using namespace std;
 namespace sim {
     // Memanggil constructor class Orang, lalu mengisi sisa variabelnya
     Mahasiswa::Mahasiswa(string input_nama, string input_tgl, string input_nrp, string input_dept) 
-        : Orang(input_nama, input_tgl) {
+        : Orang(input_nama, input_tgl) { // Mengirim nama dan tgl ke class Orang
         
         nrp = input_nrp;
         departemen = input_dept;
