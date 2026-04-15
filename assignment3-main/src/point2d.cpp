@@ -3,7 +3,11 @@
 
 #include "include/point2d.hpp"
 
-Point2D::Point2D() : _x(0), _y(0), _z(0) { }
+using namespace std;
+
+using namespace GeometriSegitiga;
+
+Point2D::Point2D() : _x(0), _y(0), _z(0) {}
 
 Point2D::Point2D(float x, float y, float z) : _x(x), _y(y), _z(z) { }
 

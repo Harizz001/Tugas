@@ -15,6 +15,13 @@ Output
 Silahkan gunakan teori dan implementasi yang telah diajarkan dikelas
 */
 
+#ifndef __TRIANGLES_HPP__
+#define __TRIANGLES_HPP__
+
+#include "point2d.hpp"
+
+namespace GeometriSegitiga {
+
 class Triangle {
     private:
         Point2D _t1, _t2, _t3;
@@ -33,3 +40,7 @@ class Triangle {
     
         void TriangleType(); 
 };
+
+}
+
+#endif
