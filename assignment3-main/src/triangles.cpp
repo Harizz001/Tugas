@@ -45,20 +45,31 @@ namespace GeometriSegitiga {
 
     void Triangle::TriangleType() {
         // Menghitung panjang 3 sisi segitiga menggunakan rumus jarak antara 2 titik
-        // Jarak = sqrt((x2 - x1)^2 + (y2 - y1)^2)
-        float a = sqrt(pow(_t2.GetX() - _t1.GetX(), 2) + pow(_t2.GetY() - _t1.GetY(), 2));
-        float b = sqrt(pow(_t3.GetX() - _t2.GetX(), 2) + pow(_t3.GetY() - _t2.GetY(), 2));
-        float c = sqrt(pow(_t1.GetX() - _t3.GetX(), 2) + pow(_t1.GetY() - _t3.GetY(), 2));
+        // Jarak = sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2)
+        float a = sqrt(pow(_t2.GetX() - _t1.GetX(), 2) + pow(_t2.GetY() - _t1.GetY(), 2) + pow(_t2.GetZ() - _t1.GetZ(), 2));
+        float b = sqrt(pow(_t3.GetX() - _t2.GetX(), 2) + pow(_t3.GetY() - _t2.GetY(), 2) + pow(_t3.GetZ() - _t2.GetZ(), 2));
+        float c = sqrt(pow(_t1.GetX() - _t3.GetX(), 2) + pow(_t1.GetY() - _t3.GetY(), 2) + pow(_t1.GetZ() - _t3.GetZ(), 2));
 
         float eps = 0.001; // nilai toleransi angka desimal (float)
 
+        // cek sama sisi
         if (abs(a - b) < eps && abs(b - c) < eps) {
             cout << "sama sisi" << endl;
-        } else if (abs(a - b) < eps || abs(b - c) < eps || abs(a - c) < eps) {
-            cout << "sama kaki" << endl;
-        } else if (pow(a, 2) + pow(b, 2) == pow(c, 2) || pow(b, 2) + pow(c, 2) == pow(a, 2) || pow(a, 2) + pow(c, 2) == pow(b, 2)) {
+        }
+
+        // fix urutan pengecekan, harusnya cek siku-siku dulu baru cek sama kaki
+        // cek siku-siku menggunakan teorema Pythagoras
+        else if (abs((a*a + b*b) - c*c) < eps || abs((b*b + c*c) - a*a) < eps || abs((a*a + c*c) - b*b) < eps) {
             cout << "siku-siku" << endl;
-        } else {
+        } 
+
+        // cek sama kaki
+        else if (abs(a - b) < eps || abs(b - c) < eps || abs(a - c) < eps) {
+            cout << "sama kaki" << endl;
+        }
+        
+        // segitiga sembarang
+        else {
             cout << "sembarang" << endl;
         }
     }
