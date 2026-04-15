@@ -49,7 +49,7 @@ int main(int argc, char ** argv)
     --------------------------*/
     cout << "\n=== Hasil Analisis Jenis Segitiga ===" << endl;
 
-    for (size_t i = 0; i < triangles.size(); i++) { // size_t digunakan untuk menghindari peringatan "signed/unsigned mismatch"
+    for (size_t i = 0; i < triangles.size(); i++) { // size_t digunakan untuk menghindari peringatan "signed/unsigned mismatch" (fix warning)
         cout << "Segitiga ke-" << (i + 1) << ": ";
         triangles[i].TriangleType();
     }
