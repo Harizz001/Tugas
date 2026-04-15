@@ -16,7 +16,10 @@ int main(int argc, char ** argv)
 
     cout << "=== Program Analisis Jenis Segitiga ===" << endl;
     cout << "Masukkan jumlah segitiga yang ingin dianalisis: ";
-    if (!(cin >> n)) return 0;
+    if (!(cin >> n) || n <= 0) { // fix bug input jumlah segitiga, harus positif dan valid
+        cerr << "Error: Jumlah segitiga tidak valid!" << endl;
+        return 1;
+    }
 
     /*--------------------------
     Buat loop untuk membuat menginputkan data triangle (3 buah X Y Z data) ke dalam
